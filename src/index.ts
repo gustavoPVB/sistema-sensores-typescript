@@ -61,7 +61,46 @@ const medicao2 = criarMedicao(
   95,
   new Date()
 );
+const medicao3 = criarMedicao(
+  3,
+  sensorMotorA,
+  15,
+  new Date()
+);
+const medicao4 = criarMedicao(
+  4,
+  sensorMotorA,
+  55,
+  new Date()
+);
+const medicao5 = criarMedicao(
+  5,
+  sensorMotorA,
+  105,
+  new Date()
+);
 console.log("=== MEDIÇÃO 1 ===");
 console.log(exibirMedicao(medicao1));
 console.log("=== MEDIÇÃO 2 ===");
 console.log(exibirMedicao(medicao2));
+console.log("=== MEDIÇÃO 3 ===");
+console.log(exibirMedicao(medicao3));
+console.log("=== MEDIÇÃO 4 ===");
+console.log(exibirMedicao(medicao4));
+console.log("=== MEDIÇÃO 5 ===");
+console.log(exibirMedicao(medicao5));
+function listarAlertas(medicoes: Medicao[]): Medicao[] {
+  return medicoes.filter((m) => m.status === "alerta" || m.status === "critico");
+}
+function listarPorSensor(
+  medicoes: Medicao[],
+  sensor: Sensor
+): Medicao[] {
+  return medicoes.filter((m) => m.sensor.id === sensor.id);
+}
+const medicoes: Medicao[] = [];
+medicoes.push(medicao1);
+medicoes.push(medicao2);
+medicoes.push(medicao3);
+medicoes.push(medicao4);
+medicoes.push(medicao5);
